@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
 
     # Third party
-    # ...
+    "rest_framework",
 
     # Local
     "library"
@@ -115,3 +115,12 @@ STATIC_ROOT = env("STATIC_ROOT", default=root_path("static"))
 
 MEDIA_URL = env("MEDIA_URL", default="/media/")
 MEDIA_ROOT = env("MEDIA_ROOT", default=root_path("media"))
+
+
+# -----------------------------------------------------------------------------
+# Django Rest Framework configuration
+# -----------------------------------------------------------------------------
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
