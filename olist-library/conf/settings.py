@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     # ...
 
     # Local
-    # ...
+    "library"
 ]
 
 
