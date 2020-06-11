@@ -19,6 +19,9 @@ class Command(BaseCommand):
 
         reader = csv.reader(file)
 
+        if reader.line_num < 2:
+            raise CommandError("File must have at least two rows")
+
         for i, row in enumerate(reader):
             # Ignores the first row of csv, because its a header
             if i > 0:
