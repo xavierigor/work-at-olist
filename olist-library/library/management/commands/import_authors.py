@@ -11,21 +11,21 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            file = open(options["file"])
+            file = open(options["file"], "r")
         except FileNotFoundError:
             raise CommandError("File not found")
         except TypeError:
             raise CommandError("A csv type file is required")
 
+        if not file.name.endswith(".csv"):
+            raise CommandError("A csv type file is required")
+
         reader = csv.reader(file)
+        next(reader)
 
-        row_count = sum(1 for row in reader) - 1
-        if row_count < 2:
-            raise CommandError("File must have at least two rows")
+        try:
+            authors = Author.objects.bulk_create([Author(name=row[0]) for row in reader])
 
-        for i, row in enumerate(reader):
-            # Ignores the first row of csv, because its a header
-            if i > 0:
-                Author.objects.create(name=row[0])
-
-        self.stdout.write(self.style.SUCCESS(f"Successfully imported {row_count} author(s) from CSV file"))
+            self.stdout.write(self.style.SUCCESS(f"Successfully imported {len(authors)} author(s) from CSV file"))
+        except:
+            raise CommandError("There was an error while importing authors")
