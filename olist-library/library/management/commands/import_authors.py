@@ -19,7 +19,8 @@ class Command(BaseCommand):
 
         reader = csv.reader(file)
 
-        if reader.line_num < 2:
+        row_count = sum(1 for row in reader) - 1
+        if row_count < 2:
             raise CommandError("File must have at least two rows")
 
         for i, row in enumerate(reader):
@@ -27,4 +28,4 @@ class Command(BaseCommand):
             if i > 0:
                 Author.objects.create(name=row[0])
 
-        self.stdout.write(self.style.SUCCESS(f"Successfully imported {reader.line_num - 1} author(s) from CSV file"))
+        self.stdout.write(self.style.SUCCESS(f"Successfully imported {row_count} author(s) from CSV file"))
