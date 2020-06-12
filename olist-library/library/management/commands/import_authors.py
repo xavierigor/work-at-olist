@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = "Imports the given csv data into the Authors table"
 
     def add_arguments(self, parser):
-        parser.add_argument("file", type=str)
+        parser.add_argument("file", nargs="?", type=str)
 
     def handle(self, *args, **options):
         try:
@@ -24,7 +24,7 @@ class Command(BaseCommand):
         next(reader)
 
         try:
-            authors = Author.objects.bulk_create([Author(name=row[0]) for row in reader])
+            authors = Author.objects.bulk_create([Author(name=row[0]) for row in reader if row])
 
             self.stdout.write(self.style.SUCCESS(f"Successfully imported {len(authors)} author(s) from CSV file"))
         except:
