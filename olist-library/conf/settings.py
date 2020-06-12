@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
 
     # Third party
+    "django_filters",
     "rest_framework",
 
     # Local
