@@ -1,3 +1,61 @@
+Olist Library
+==============
+
+How it works
+------------
+
+It shrinks URLs and stores how many times the short URL it was clicked.
+
+
+Dependencies
+------------
+- python = "^3.8"
+- django = "^3.0.7"
+- djangorestframework = "^3.11.0"
+- django-filter = "^2.3.0"
+- psycopg2 = "^2.8.5"
+- django-environ = "^0.4.5"
+- drf-yasg = "^1.17.1"
+- django_heroku = "^0.3.1"
+- gunicorn = "^20.0.4"
+- dj-database-url = "^0.5.0"
+
+
+Installing & Running
+--------------------
+
+You can install `olist-library` cloning it from GitHub:
+
+        $ git clone https://github.com/xavierigor/work-at-olist
+        
+
+Create a .env file in the root of the project and copy the contents of .env.example to it:
+
+        $ cd work-at-olist/
+        $ touch .env
+        $ cp .env.example .env
+
+    
+Now you'll have to modify `SECRET_KEY` and `DATABASE_URL` on the newly created .env file with your own database url and app secret key.
+
+
+Use `make setup` to install project's dependencies and run migrations:
+
+        $ cd project-name/
+        $ make setup
+
+Now you can run all tests:
+
+        $ make test
+
+And run the Django built-in server:
+
+        $ make run
+
+
+
+---
+
 # Work at Olist
 
 [Olist](https://olist.com/) is a company that offers an integration platform for sellers and marketplaces allowing them to sell their products across multiple channels.
