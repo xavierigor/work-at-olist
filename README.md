@@ -64,7 +64,6 @@ Now you'll have to modify `SECRET_KEY` and `DATABASE_URL` on the newly created .
 
 Use `make setup` to install project's dependencies and run migrations:
 
-        $ cd project-name/
         $ make setup
 
 Now you can run all tests:
