@@ -1,4 +1,4 @@
-from library.filters import BookFilter
+from library.filters import BookFilter, AuthorFilter
 from rest_framework import viewsets
 
 from library.models import Author, Book
@@ -9,6 +9,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.order_by("-pk")
     serializer_class = AuthorSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = AuthorFilter
 
 
 class BookViewSet(viewsets.ModelViewSet):

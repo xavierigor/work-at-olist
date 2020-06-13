@@ -3,6 +3,13 @@ from library.models import Book, Author
 from django_filters import ModelMultipleChoiceFilter
 
 
+class AuthorFilter(filters.FilterSet):
+
+    class Meta:
+        model = Author
+        fields = ["name"]
+
+
 class BookFilter(filters.FilterSet):
     author = ModelMultipleChoiceFilter(field_name="authors", queryset=Author.objects.all())
 
