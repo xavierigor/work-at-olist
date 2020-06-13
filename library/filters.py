@@ -1,6 +1,7 @@
-from django_filters.rest_framework import filterset as filters
-from library.models import Book, Author
 from django_filters.rest_framework import ModelMultipleChoiceFilter
+from django_filters.rest_framework import filterset as filters
+
+from library.models import Book, Author
 
 
 class AuthorFilter(filters.FilterSet):

@@ -1,10 +1,7 @@
-from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework.test import APITestCase
 from rest_framework import status
 from library.models import Author, Book
-
-User = get_user_model()
 
 
 def create_author(name):
