@@ -2,6 +2,8 @@ import os
 
 import environ
 
+import django_heroku
+
 env = environ.Env()
 root_path = environ.Path(__file__) - 2
 env.read_env(env_file=root_path(".env"))
@@ -126,3 +128,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+
+# -----------------------------------------------------------------------------
+# Django Heroku configuration
+# -----------------------------------------------------------------------------
+django_heroku.settings(locals())
