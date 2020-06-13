@@ -333,7 +333,7 @@ version = "5.1.0"
 brotli = ["brotli"]
 
 [metadata]
-content-hash = "9e964ae1ee1714c044610b50f30d76aa3972ddf00d16163602a5344e9ac074e0"
+content-hash = "454c22f8b64400689cf528d8459785153c5d7f3e677596983a8e365150be0346"
 python-versions = "^3.8"
 
 [metadata.files]
