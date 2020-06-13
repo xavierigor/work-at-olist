@@ -4,11 +4,33 @@ Olist Library
 How it works
 ------------
 
-It shrinks URLs and stores how many times the short URL it was clicked.
+`Olist Library` is a library API that lets you create, retrieve, update and delete authors and their books.
 
+It's alive, [check it out!](https://olist-library-drf.herokuapp.com/api/v1/)
+Alternatively, if you wanna read the docs, you can [click here.](https://olist-library-drf.herokuapp.com/) Or maybe [here](https://olist-library-drf.herokuapp.com/redoc) :)
+
+
+Environment used to build the project
+------------
+
+##### Computer
+- Intel Core i7 8th Gen
+- Nvidia GeForce MX150/PCIe/SSE2
+- RAM 16gb
+- SSD 128gb + HDD 1tb
+
+##### OS
+- Ubuntu 18.04.4 LTS
+
+##### IDE/Tools
+- PyCharm Professional
+- Insomnia
+- Pyenv (for managing python versions)
+- Poetry (dependency manager)
 
 Dependencies
 ------------
+
 - python = "^3.8"
 - django = "^3.0.7"
 - djangorestframework = "^3.11.0"
@@ -20,11 +42,12 @@ Dependencies
 - gunicorn = "^20.0.4"
 - dj-database-url = "^0.5.0"
 
+> The database used in this project was `POSTGRESQL`, that's why we need the `psycopg2` dependency.
 
 Installing & Running
 --------------------
 
-You can install `olist-library` cloning it from GitHub:
+You can install `Olist Library` cloning it from GitHub:
 
         $ git clone https://github.com/xavierigor/work-at-olist
         
@@ -53,6 +76,26 @@ And run the Django built-in server:
         $ make run
 
 
+Management commands
+--------------------
+
+The application also provides a useful [management command](https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/) that can import authors from a .csv file to the database, __import_authors__:
+
+        $ python manage.py import_authors <csv-file-path>
+
+The command must receive a valid .csv file as input in the following format:
+
+        name
+        Luciano Ramalho
+        Osvaldo Santana Neto
+        David Beazley
+        Chetan Giridhar
+        Brian K. Jones
+        J.K Rowling
+
+Example below:
+
+        $ python manage.py import_authors authors.csv
 
 ---
 
