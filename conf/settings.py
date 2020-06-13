@@ -6,7 +6,7 @@ import django_heroku
 import dj_database_url
 
 env = environ.Env()
-root_path = environ.Path(__file__) - 3
+root_path = environ.Path(__file__) - 2
 env.read_env(env_file=root_path(".env"))
 
 
