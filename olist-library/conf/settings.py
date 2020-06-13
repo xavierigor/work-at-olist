@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     # Third party
     "django_filters",
     "rest_framework",
+    "drf_yasg",
 
     # Local
     "library"
